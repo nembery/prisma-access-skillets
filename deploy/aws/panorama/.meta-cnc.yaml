@@ -1,0 +1,37 @@
+name: aws_panorama_905
+
+label: AWS Panorama
+
+description: Launch a Panorama Instance in AWS using Terraform
+
+type: terraform
+
+labels:
+  collection:
+    - Public Cloud
+    - Deploy
+
+variables:
+  - name: access_key
+    description: AWS Access Key
+    default: access_key
+    type_hint: text
+  - name: secret_key
+    description: AWS Secret Key
+    default:
+    type_hint: password
+  - name: region
+    description: AWS Region
+    default: us-east-2
+    type_hint: text
+  - name: resource_group
+    description: Resource Group
+    default: panhandler-resource-group
+    type_hint: text
+    help_text: This should be some unique value that you can easily locate in the AWS console.
+  - name: public_key
+    description: SSH Public Key
+    default: ''
+    type_hint: hidden
+
+

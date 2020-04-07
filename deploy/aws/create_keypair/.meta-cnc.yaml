@@ -1,0 +1,29 @@
+name: aws_create_keypair
+
+label: AWS Create SSH Key Pair
+
+description: Creates a temporary deployment key for AWS based instances
+
+type: python3
+
+labels:
+  collection:
+    - Public Cloud
+    - Deploy
+
+variables:
+  - name: file_path
+    description: Path to SSH Key
+    default: /home/cnc_user/deploy_key
+    type_hint: text
+    help_text: |
+      Full path to a deployment key. If one exists already it will be used, otherwise a new pair will be created.
+
+snippets:
+  - name: script
+    file: create_keypair.py
+    input_type: env
+    output_type: json
+    outputs:
+      - name: public_key
+        capture_pattern: public_key
